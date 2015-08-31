@@ -1,6 +1,6 @@
 # require "./lib/runner"
 #
-# Runner.new.run 
+# Runner.new.run
 
 
 ### methods / functions
@@ -91,7 +91,6 @@ loop do
 
       puts feedback.join
 
-      feedback_board(feedback)
       puts " ----- ----- ----- ----- "
       puts "|  #{feedback[0]}  |  #{feedback[1]}  |  #{feedback[2]}  |  #{feedback[3]}  |"
       puts " ----- ----- ----- ----- "
