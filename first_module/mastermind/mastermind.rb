@@ -75,6 +75,10 @@ loop do
         loop do
           if valid_guess?(user_guess)
             break
+          elsif user_guess.to_s != user_guess
+            prompt("Those look like numbers. Try B, R, Y or G.")
+            prompt("What's your guess?")
+            user_guess = gets.chomp.upcase.split(//)
           elsif user_guess.length < 4
             prompt("That guess is too short.")
             prompt("What's your guess?")
