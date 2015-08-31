@@ -1,15 +1,6 @@
 # require "./lib/runner"
 #
 # Runner.new.run 
-gem 'minitest'
-require 'minitest/autorun'
-require 'minitest/pride'
-
-class MastermindTest < Minitest::Test
-  def test_secret_code_length
-    assert_equal 4, secret_code.length
-  end
-end
 
 
 ### methods / functions
