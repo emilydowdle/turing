@@ -1,0 +1,67 @@
+gem 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+
+class CountPatternTest < Minitest::Test
+
+  def test_count_count_words_with_e
+    words = ["thing", "phone", "bark", "belt", "shoe", "bath"]
+    tally = 0
+    words.each do |word|
+      tally += 1 if word.include?('e')
+    end
+    assert_equal 3, tally
+  end
+
+  def test_count_numbers_greater_than_17
+    numbers = [9, 18, 12, 17, 1, 3, 99]
+    tally = 0
+    numbers.each do |number|
+      tally += 1 if number > 17
+    end
+    assert_equal 2, tally
+  end
+
+  def test_count_words_that_are_uppercase
+    words = ["trousers", "SOCKS", "sweater", "Cap", "SHOE", "TIE"]
+    tally = 0
+    words.each {|e| tally += 1 if e == e.upcase}
+    assert_equal 3, tally
+  end
+
+  def test_count_words_ending_in_ing
+    words = ["thought", "brake", "shin", "juice", "trash"]
+    tally = 0
+    words.each {|e| tally += 1 if e.end_with?("ing")}
+    assert_equal 0, tally
+  end
+
+  def test_count_even_numbers
+    numbers = [9, 2, 1, 3, 18, 39, 71, 4, 6]
+    tally = 0
+    numbers.each {|e| tally += 1 if e % 2 == 0}
+    assert_equal 4, tally
+  end
+
+  def test_count_multiples_of_5
+    numbers = [2, 5, 19, 25, 35, 67]
+    tally = 0
+    numbers.each { |e| tally += 1 if e % 5 == 0 }
+    assert_equal 3, tally
+  end
+
+  def test_count_round_prices
+    prices = [1.0, 3.9, 5.99, 18.5, 20.0]
+    tally = 0
+    prices.each {|e| tally += 1 if (e * 10) % 10 == 0}
+    assert_equal 2, tally
+  end
+
+  def test_count_four_letter_words
+    words = ["bake", "bark", "corn", "apple", "wart", "bird", "umbrella", "fart"]
+    tally = 0
+    words.each {|e| tally += 1 if e.length == 4}
+    assert_equal 6, tally
+  end
+
+end
