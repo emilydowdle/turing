@@ -64,7 +64,7 @@ loop do
     loop do
 
       prompt("What's your guess?")
-      user_guess = gets.chomp.upcase.split(//)
+      user_guess = gets.chomp.to_s.upcase.split(//)
 
       if user_guess == ["Q"]
         break
@@ -73,18 +73,19 @@ loop do
         break
       else
         loop do
-          if valid_guess?(user_guess)
+          case
+          when valid_guess?(user_guess)
             break
-          elsif user_guess.to_s != user_guess
-            prompt("Those look like numbers. Try B, R, Y or G.")
-            prompt("What's your guess?")
-            user_guess = gets.chomp.upcase.split(//)
-          elsif user_guess.length < 4
+          when user_guess.length < 4
             prompt("That guess is too short.")
             prompt("What's your guess?")
             user_guess = gets.chomp.upcase.split(//)
-          elsif user_guess.length > 4
+          when user_guess.length > 4
             prompt("That guess is too long.")
+            prompt("What's your guess?")
+            user_guess = gets.chomp.upcase.split(//)
+          when user_guess.to_s != user_guess
+            prompt("Those look like numbers. Try B, R, Y or G.")
             prompt("What's your guess?")
             user_guess = gets.chomp.upcase.split(//)
           end
